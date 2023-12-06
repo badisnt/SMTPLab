@@ -11,9 +11,9 @@ Requirements
 * Needed Tools
 
 You need to have the following tools installed and functional to run this program:
-  * JDK (17.0 or higher)
-  * Docker
-  * Maven
+  - JDK (17.0 or higher)
+  - Docker
+  - Maven
 
 * Config File
 
@@ -32,6 +32,7 @@ The list of prank messages to send, found in the "messages.txt" file under "/con
 ```
 
 * Victims List
+
 The list of email addresses, found in the "victims.txt" file under "/config", should contain one email address per line.
 
 Mock SMTP Server
