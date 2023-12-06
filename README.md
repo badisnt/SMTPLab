@@ -13,10 +13,10 @@ Requirements
   - Docker
   - Maven
 
-* **Config Folder:** The "config.txt" file under "/config" provides some necessary information for the functioning of the program.
-  -serverAddress: SMTP server port (localhost by default if using maildev)
-  -serverPort: SMTP server port (1025 by default)
-  -nb: number of groups to generate, i.e number of emails to send (5 by default)
+* **Config Folder:** The "config.txt" file under "/config" provides some necessary information for the functioning of the program
+	- serverAddress: SMTP server port (localhost by default if using maildev)
+    - serverPort: SMTP server port (1025 by default)
+    - nb: number of groups to generate, i.e number of emails to send (5 by default)
 
 * **Messages List**
 
