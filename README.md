@@ -8,21 +8,19 @@ The project aims to create a TCP client application in Java that interacts with 
 
 Requirements
 -----------
-* Needed Tools
-
-You need to have the following tools installed and functional to run this program:
+* **Needed Tools:** You need to have the following tools installed and functional to run this progra
   - JDK (17.0 or higher)
   - Docker
   - Maven
 
-* Config File
+* **Config File**
 
 The "config.txt" file under "/config" provides some necessary information for the functioning of the program.
   *serverAddress: SMTP server port (localhost by default if using maildev)
   *serverPort: SMTP server port (1025 by default)
   *nb: number of groups to generate, i.e number of emails to send (5 by default)
 
-* Messages List
+* **Messages List**
 
 The list of prank messages to send, found in the "messages.txt" file under "/config", should following this format, using *** as delimiters:
 ```
@@ -31,7 +29,7 @@ The list of prank messages to send, found in the "messages.txt" file under "/con
     ***
 ```
 
-* Victims List
+* **Victims List**
 
 The list of email addresses, found in the "victims.txt" file under "/config", should contain one email address per line.
 
