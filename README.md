@@ -53,7 +53,7 @@ Instructions
 ```
 2. If needed, change the parameters in the "config.txt" file and write your own email addresses and pranks in the "victims.txt" and "messages.txt" files (ChatGPT is useful for generating some unfunny pranks)
 
-![image](https://github.com/badisnt/SMTPLab/blob/main/figures/configFiles.png)!
+![image](https://github.com/badisnt/SMTPLab/blob/main/figures/configFiles.png)
 
 3. Use Maven to compile and run the java project by running the following commands in the same directory as the "pom.xml" file:
 ```
@@ -63,16 +63,36 @@ java -jar prankster-1.0.jar
 ``` 
 4. If using MailDev, go to "localhost:1080" on your prefered browser and check that the prank emails have been sent.
 
-![image](https://github.com/badisnt/SMTPLab/blob/main/figures/Screenshot%202023-12-06%20210257.png)!
+![image](https://github.com/badisnt/SMTPLab/blob/main/figures/Screenshot%202023-12-06%20210257.png)
 
 SMTP Protocol Example
 -------
 Below is an example of how the communication between client and server works.
 
-![image](https://github.com/badisnt/SMTPLab/blob/main/figures/example.png)!
+![image](https://github.com/badisnt/SMTPLab/blob/main/figures/example.png)
 
 
 Implementation
 -------
-![image](https://github.com/badisnt/SMTPLab/blob/main/figures/diagram.png)!
+![image](https://github.com/badisnt/SMTPLab/blob/main/figures/diagram.png)
 
+* **Main Class**
+
+The Main class makes an instance of Configurator, SMTPClient and PrankGenerator. It uses Configurator to provide the necessary information for SMTPClient and PrankGenerator.
+PrankGenerator is then used to generate pranks, which are sent one by one using SMTPClient.
+
+* **Configurator**
+
+An instance of Configurator can read the parameters in a config file, the victim list in a victim file, and the prank messages in a messages file. It can return these values through getters.
+
+* **SMTPClient**
+
+The SMTPClient has one public method that is used to send an email. It does so by sending commands to the SMTP server and reading the reply. Throws an Exception if the server returns an error.
+
+* **PrankGenerator**
+
+An instance of PrankGenerator uses the Configurator to get the email addresses and messages. It then generates emails to be sent. It does so by selecting a random email message, then selecting 2-5 addresses at random, 1 of which will be the sender. It returns the pranks as a list of Email objects.
+
+* **Email**
+
+An Email contains all the necessary information for SMTPClient to be able to send an email. This includes the sender, receivers, subject and body of the email to be sent.
