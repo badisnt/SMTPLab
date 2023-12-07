@@ -11,15 +11,20 @@ import lab4.smtp.SMTPClient;
 public class Main {
     public static void main(String[] args) {
         try{                   
-            Configurator config = new Configurator("../src/main/java/lab4/config/messages.txt", 
-                                                    "../src/main/java/lab4/config/victims.txt",
-                                                    "../src/main/java/lab4/config/config.txt");
+            Configurator config = new Configurator("../../config/messages.txt", 
+                                                    "../../config/victims.txt",
+                                                    "../../config/config.txt");
             int nb = config.getNb();
             SMTPClient smtp = new SMTPClient(config.getHost(), config.getPort());
-            PrankGenerator ppg = new PrankGenerator(config, smtp, nb);
+            PrankGenerator ppg = new PrankGenerator(config, nb);
 
-            List<Email> listo = ppg.generatePranks();
-            ppg.sendEmails(listo);
+            List<Email> list = ppg.generatePranks();
+            int i= 0;
+            for (Email e : list){
+                i++;
+                smtp.sendEmail(e);
+                System.out.println("Sent email number " + i);
+            }
 
         }catch(IOException e){
             System.out.println(e);

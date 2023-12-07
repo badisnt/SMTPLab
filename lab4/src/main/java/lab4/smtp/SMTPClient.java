@@ -26,6 +26,10 @@ public class SMTPClient {
 
     private void readAndCheck() throws IOException{
         String line = reader.readLine();
+        
+        if(line==null){
+            return;
+        }
         if(!line.startsWith("2")){
             throw new IOException("SMTP server returned error: " + line);
         }
